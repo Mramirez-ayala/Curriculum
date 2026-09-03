@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marco Antonio Ramírez Ayala | Data Analytics & ETL Engineer</title>
-    <!-- Google Fonts & FontAwesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+        /* Variables de Tema Claro (Por defecto) */
         :root {
             --primary-color: #0f172a;
             --accent-color: #2563eb;
@@ -21,12 +21,32 @@
             --border-color: #e2e8f0;
             --tag-bg: #eff6ff;
             --tag-text: #1e40af;
+            --toggle-bg: #e2e8f0;
+            --toggle-btn: #ffffff;
+        }
+
+        /* Variables de Tema Oscuro */
+        body.dark-theme {
+            --primary-color: #020617;
+            --accent-color: #3b82f6;
+            --accent-hover: #60a5fa;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #cbd5e1;
+            --text-heading: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --tag-bg: #1e3a8a;
+            --tag-text: #bfdbfe;
+            --toggle-bg: #334155;
+            --toggle-btn: #0f172a;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
         body {
@@ -43,12 +63,53 @@
             padding: 0 1.5rem;
         }
 
+        /* Contenedor y Botones de Cambio de Tema */
+        .theme-toggle-container {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            padding: 4px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            gap: 4px;
+        }
+
+        .theme-btn {
+            background: transparent;
+            border: none;
+            color: #cbd5e1;
+            padding: 6px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .theme-btn.active {
+            background-color: var(--accent-color);
+            color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .theme-btn:hover:not(.active) {
+            color: #ffffff;
+        }
+
         /* Header / Hero Section */
         header {
             background-color: var(--primary-color);
             color: #ffffff;
             padding: 3.5rem 0 3rem;
             margin-bottom: 2rem;
+            position: relative;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
@@ -96,6 +157,11 @@
         @media (max-width: 768px) {
             .main-grid {
                 grid-template-columns: 1fr;
+            }
+            .theme-toggle-container {
+                position: static;
+                margin-bottom: 1rem;
+                width: fit-content;
             }
         }
 
@@ -156,8 +222,8 @@
 
         .exp-date {
             font-size: 0.85rem;
-            background: #f1f5f9;
-            color: var(--text-muted);
+            background: var(--tag-bg);
+            color: var(--tag-text);
             padding: 0.2rem 0.6rem;
             border-radius: 20px;
             font-weight: 500;
@@ -210,7 +276,7 @@
             font-weight: 500;
             padding: 0.3rem 0.7rem;
             border-radius: 6px;
-            border: 1px solid #dbeafe;
+            border: 1px solid var(--border-color);
         }
 
         /* Education & Certifications List */
@@ -266,9 +332,17 @@
 </head>
 <body>
 
-    <!-- Header / Hero -->
     <header>
         <div class="container header-content">
+            <div class="theme-toggle-container">
+                <button class="theme-btn active" id="light-btn" onclick="setTheme('light')">
+                    <i class="fa-solid fa-sun"></i> Light
+                </button>
+                <button class="theme-btn" id="dark-btn" onclick="setTheme('dark')">
+                    <i class="fa-solid fa-moon"></i> Dark
+                </button>
+            </div>
+
             <h1>Marco Antonio Ramírez Ayala</h1>
             <h2>Data Analytics ETL / SSIS Azure (4+ años exp.)</h2>
             <div class="contact-info">
@@ -282,9 +356,7 @@
 
     <div class="container main-grid">
         
-        <!-- Left Column: Profile & Experience -->
         <main>
-            <!-- About Card -->
             <section class="card">
                 <h3 class="section-title"><i class="fa-solid fa-user"></i> Perfil Profesional</h3>
                 <p>
@@ -295,11 +367,9 @@
                 </p>
             </section>
 
-            <!-- Experience Card -->
             <section class="card">
                 <h3 class="section-title"><i class="fa-solid fa-briefcase"></i> Experiencia Profesional</h3>
 
-                <!-- Job 1 -->
                 <div class="experience-item">
                     <div class="exp-header">
                         <div>
@@ -321,7 +391,6 @@
 
                 <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 1.5rem 0;">
 
-                <!-- Job 2 -->
                 <div class="experience-item">
                     <div class="exp-header">
                         <div>
@@ -343,7 +412,6 @@
 
                 <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 1.5rem 0;">
 
-                <!-- Job 3 -->
                 <div class="experience-item">
                     <div class="exp-header">
                         <div>
@@ -364,7 +432,6 @@
 
                 <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 1.5rem 0;">
 
-                <!-- Job 4 -->
                 <div class="experience-item">
                     <div class="exp-header">
                         <div>
@@ -385,9 +452,7 @@
             </section>
         </main>
 
-        <!-- Right Column: Skills & Education -->
         <aside>
-            <!-- Technical Skills Card -->
             <section class="card">
                 <h3 class="section-title"><i class="fa-solid fa-code"></i> Competencias Técnicas</h3>
                 
@@ -443,7 +508,6 @@
                 </div>
             </section>
 
-            <!-- Education Card -->
             <section class="card">
                 <h3 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Educación</h3>
                 <div class="edu-item">
@@ -453,7 +517,6 @@
                 </div>
             </section>
 
-            <!-- Courses & Certifications Card -->
             <section class="card">
                 <h3 class="section-title"><i class="fa-solid fa-certificate"></i> Cursos y Formación</h3>
                 <div class="edu-item">
@@ -468,7 +531,6 @@
                 </div>
             </section>
 
-            <!-- Soft Skills & Languages -->
             <section class="card">
                 <h3 class="section-title"><i class="fa-solid fa-globe"></i> Idiomas & Habilidades</h3>
                 <ul class="simple-list">
@@ -490,5 +552,30 @@
         <p>© Marco Antonio Ramírez Ayala. Todos los derechos reservados.</p>
     </footer>
 
+    <script>
+        function setTheme(theme) {
+            const body = document.body;
+            const lightBtn = document.getElementById('light-btn');
+            const darkBtn = document.getElementById('dark-btn');
+
+            if (theme === 'dark') {
+                body.classList.add('dark-theme');
+                darkBtn.classList.add('active');
+                lightBtn.classList.remove('active');
+                localStorage.setItem('preferred-theme', 'dark');
+            } else {
+                body.classList.remove('dark-theme');
+                lightBtn.classList.add('active');
+                darkBtn.classList.remove('active');
+                localStorage.setItem('preferred-theme', 'light');
+            }
+        }
+
+        // Cargar la preferencia guardada del navegador al cargar la página
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('preferred-theme') || 'light';
+            setTheme(savedTheme);
+        });
+    </script>
 </body>
 </html>
