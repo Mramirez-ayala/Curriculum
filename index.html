@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marco Antonio Ramírez Ayala | Data Analytics & ETL Engineer</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #0f172a;
+            --accent-color: #2563eb;
+            --accent-hover: #1d4ed8;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-heading: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --tag-bg: #eff6ff;
+            --tag-text: #1e40af;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 3rem;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header / Hero Section */
+        header {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 3.5rem 0 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .header-content h2 {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: #93c5fd;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            font-size: 0.95rem;
+        }
+
+        .contact-info a, .contact-info span {
+            color: #e2e8f0;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.2s;
+        }
+
+        .contact-info a:hover {
+            color: #93c5fd;
+        }
+
+        /* Layout Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Card Component */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.8rem;
+            margin-bottom: 1.8rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title i {
+            color: var(--accent-color);
+        }
+
+        /* Experience Timeline */
+        .experience-item {
+            margin-bottom: 1.8rem;
+            position: relative;
+        }
+
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 0.4rem;
+        }
+
+        .exp-role {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-heading);
+        }
+
+        .exp-company {
+            font-weight: 500;
+            color: var(--accent-color);
+        }
+
+        .exp-date {
+            font-size: 0.85rem;
+            background: #f1f5f9;
+            color: var(--text-muted);
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        .exp-details {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+        }
+
+        .exp-bullets {
+            list-style-type: disc;
+            padding-left: 1.2rem;
+            font-size: 0.95rem;
+        }
+
+        .exp-bullets li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Skills Tags */
+        .skills-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .skills-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .skills-group-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: var(--tag-bg);
+            color: var(--tag-text);
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
+            border: 1px solid #dbeafe;
+        }
+
+        /* Education & Certifications List */
+        .edu-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .edu-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .edu-title {
+            font-weight: 600;
+            color: var(--text-heading);
+            font-size: 0.95rem;
+        }
+
+        .edu-institution {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .edu-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Soft Skills & Languages */
+        .simple-list {
+            list-style: none;
+        }
+
+        .simple-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.4rem 0;
+            border-bottom: 1px dashed var(--border-color);
+            font-size: 0.95rem;
+        }
+
+        .simple-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Hero -->
+    <header>
+        <div class="container header-content">
+            <h1>Marco Antonio Ramírez Ayala[cite: 1]</h1>
+            <h2>Data Analytics ETL / SSIS Azure (4+ años exp.)[cite: 1]</h2>
+            <div class="contact-info">
+                <a href="tel:+525514951511"><i class="fa-solid fa-phone"></i> +52 55 1495 1511[cite: 1]</a>
+                <a href="mailto:maaramireza@gmail.com"><i class="fa-solid fa-envelope"></i> maaramireza@gmail.com[cite: 1]</a>
+                <a href="https://linkedin.com/in/maaramireza" target="_blank"><i class="fa-brands fa-linkedin"></i> linkedin.com/in/maaramireza[cite: 1]</a>
+                <span><i class="fa-solid fa-location-dot"></i> Naucalpan, Estado de México[cite: 1]</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container main-grid">
+        
+        <!-- Left Column: Profile & Experience -->
+        <main>
+            <!-- About Card -->
+            <section class="card">
+                <h3 class="section-title"><i class="fa-solid fa-user"></i> Perfil Profesional</h3>
+                <p>
+                    Profesional de datos con más de 4 años de experiencia en los sectores financiero, asegurador y de telecomunicaciones (BBVA, Banamex, AT&T)[cite: 1]. Especializado en la construcción y automatización de pipelines ETL, desarrollo con SSIS, integración con Azure Databricks y procesamiento de grandes volúmenes de información con SAS, SQL y Python[cite: 1]. 
+                </p>
+                <p style="margin-top: 0.8rem;">
+                    Experiencia destacada en automatización de reportes, análisis numérico y cualitativo, y generación de reportes ejecutivos de alto impacto[cite: 1]. Sólido dominio de SQL (SQL Server, Oracle, MySQL, Teradata), Python, C# y herramientas de nube Azure, con un constante enfoque en la calidad del dato, la consistencia de la información y la adopción del Modern Data Stack[cite: 1].
+                </p>
+            </section>
+
+            <!-- Experience Card -->
+            <section class="card">
+                <h3 class="section-title"><i class="fa-solid fa-briefcase"></i> Experiencia Profesional</h3>
+
+                <!-- Job 1 -->
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div>
+                            <span class="exp-role">Analista de Administración de la Información</span>[cite: 1]
+                            <div class="exp-company">Seguros Banamex[cite: 1]</div>
+                        </div>
+                        <span class="exp-date">Mar. 2025 - Abr. 2026[cite: 1]</span>
+                    </div>
+                    <div class="exp-details">
+                        <i class="fa-solid fa-building"></i> Sector: Seguros | Ciudad de México[cite: 1]
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Automatización de 2-3 solicitudes BAU mensuales en SAS, reduciendo el tiempo de generación de reportes de 2 horas a minutos, liberando capacidad operativa mensual y estandarizando scripts reutilizables para el equipo[cite: 1].</li>
+                        <li>Implementación de consultas SAS y SQL en entornos Teradata y Oracle para extracción, manipulación, transformación y validación de grandes volúmenes de datos críticos de portafolios[cite: 1].</li>
+                        <li>Generación y seguimiento de reportes diarios de comportamiento operativo con análisis numérico y cualitativo[cite: 1].</li>
+                        <li>Colaboración con distintas áreas para definir reglas de integración, consistencia y documentación de procesos y controles de calidad de datos[cite: 1].</li>
+                    </ul>
+                </div>
+
+                <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 1.5rem 0;">
+
+                <!-- Job 2 -->
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div>
+                            <span class="exp-role">Data Engineer Jr</span>[cite: 1]
+                            <div class="exp-company">AT&T[cite: 1]</div>
+                        </div>
+                        <span class="exp-date">Jun. 2023 - Feb. 2025[cite: 1]</span>
+                    </div>
+                    <div class="exp-details">
+                        <i class="fa-solid fa-building"></i> Sector: Telecomunicaciones | Ciudad de México[cite: 1]
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Diseño e implementación de pipeline automatizado nocturno para el procesamiento de millones de registros de cuentas pospago: recepción de archivos .txt, procesamiento con C# vía Windows Task Scheduler y carga automatizada a SQL Server[cite: 1].</li>
+                        <li>Implementación de consultas SQL Transact y Python para extracción, transformación y carga de datos en múltiples entornos (MSSQL, Oracle)[cite: 1].</li>
+                        <li>Participación en la integración de SSIS con Azure Databricks, contribuyendo a la estrategia de migración hacia la nube[cite: 1].</li>
+                        <li>Administración de bases de datos SQL Server: gestión de permisos, accesos, privilegios de usuarios y monitoreo del rendimiento de queries en producción[cite: 1].</li>
+                    </ul>
+                </div>
+
+                <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 1.5rem 0;">
+
+                <!-- Job 3 -->
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div>
+                            <span class="exp-role">Analista de Base de Datos</span>[cite: 1]
+                            <div class="exp-company">BBVA México[cite: 1]</div>
+                        </div>
+                        <span class="exp-date">Oct. 2022 - May. 2023[cite: 1]</span>
+                    </div>
+                    <div class="exp-details">
+                        <i class="fa-solid fa-building"></i> Sector: Banca (Riesgo Hipotecario) | Ciudad de México[cite: 1]
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Gestión y mantenimiento de un portafolio de 20 reportes BAU para el área de Riesgo Hipotecario; desarrollo y optimización de código SAS para análisis de comportamiento de aprobación[cite: 1].</li>
+                        <li>Automatización de procesos de integración y validación de datos, garantizando la consistencia de la información crítica[cite: 1].</li>
+                        <li>Elaboración de reportes ejecutivos en PowerPoint, Excel y dashboards para la toma de decisiones estratégicas del área[cite: 1].</li>
+                    </ul>
+                </div>
+
+                <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 1.5rem 0;">
+
+                <!-- Job 4 -->
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <div>
+                            <span class="exp-role">Analista de Base de Datos</span>[cite: 1]
+                            <div class="exp-company">SOC Asesores[cite: 1]</div>
+                        </div>
+                        <span class="exp-date">May. 2021 - Oct. 2022[cite: 1]</span>
+                    </div>
+                    <div class="exp-details">
+                        <i class="fa-solid fa-building"></i> Sector: Consultoría | Ciudad de México[cite: 1]
+                    </div>
+                    <ul class="exp-bullets">
+                        <li>Desarrollo e implementación de vistas SQL en producción consumidas desde un portal web MVC con C#[cite: 1].</li>
+                        <li>Creación y mantenimiento de queries para la automatización de procesos BPA dentro de SAP[cite: 1].</li>
+                        <li>Diseño e implementación de vistas, triggers, funciones y procedimientos almacenados en MySQL y SQL Server para optimización de consultas recurrentes[cite: 1].</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <!-- Right Column: Skills & Education -->
+        <aside>
+            <!-- Technical Skills Card -->
+            <section class="card">
+                <h3 class="section-title"><i class="fa-solid fa-code"></i> Competencias Técnicas</h3>
+                
+                <div class="skills-group">
+                    <div class="skills-group-title">Bases de Datos</div>
+                    <div class="tags">
+                        <span class="tag">SQL Transact</span>[cite: 1]
+                        <span class="tag">SQL Server</span>[cite: 1]
+                        <span class="tag">Oracle</span>[cite: 1]
+                        <span class="tag">MySQL</span>[cite: 1]
+                        <span class="tag">Teradata</span>[cite: 1]
+                        <span class="tag">SAS</span>[cite: 1]
+                    </div>
+                </div>
+
+                <div class="skills-group">
+                    <div class="skills-group-title">ETL & Data Engineering</div>
+                    <div class="tags">
+                        <span class="tag">SSIS</span>[cite: 1]
+                        <span class="tag">ETL Pipelines</span>[cite: 1]
+                        <span class="tag">PL/SQL</span>[cite: 1]
+                    </div>
+                </div>
+
+                <div class="skills-group">
+                    <div class="skills-group-title">Cloud & Plataformas</div>
+                    <div class="tags">
+                        <span class="tag">Azure Databricks</span>[cite: 1]
+                        <span class="tag">GCP / BigQuery</span>[cite: 1]
+                    </div>
+                </div>
+
+                <div class="skills-group">
+                    <div class="skills-group-title">Lenguajes de Programación</div>
+                    <div class="tags">
+                        <span class="tag">Python</span>[cite: 1]
+                        <span class="tag">C# / .NET</span>[cite: 1]
+                        <span class="tag">Visual Basic</span>[cite: 1]
+                        <span class="tag">Java</span>[cite: 1]
+                    </div>
+                </div>
+
+                <div class="skills-group">
+                    <div class="skills-group-title">BI & Herramientas</div>
+                    <div class="tags">
+                        <span class="tag">Power BI</span>[cite: 1]
+                        <span class="tag">Excel Avanzado</span>[cite: 1]
+                        <span class="tag">Git / Linux (Debian)</span>[cite: 1]
+                        <span class="tag">APIs REST</span>[cite: 1]
+                        <span class="tag">Task Scheduler</span>[cite: 1]
+                        <span class="tag">Scrum / Agile</span>[cite: 1]
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education Card -->
+            <section class="card">
+                <h3 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Educación</h3>
+                <div class="edu-item">
+                    <div class="edu-title">Licenciatura en Matemáticas Aplicadas y Computación[cite: 1]</div>
+                    <div class="edu-institution">FES Acatlán - UNAM[cite: 1]</div>
+                    <div class="edu-date">Egresado: Abril 2021[cite: 1]</div>
+                </div>
+            </section>
+
+            <!-- Courses & Certifications Card -->
+            <section class="card">
+                <h3 class="section-title"><i class="fa-solid fa-certificate"></i> Cursos y Formación</h3>
+                <div class="edu-item">
+                    <div class="edu-title">Diplomado en Técnicas Estadísticas y Minería de Datos[cite: 1]</div>
+                    <div class="edu-institution">FES Acatlán, UNAM[cite: 1]</div>
+                    <div class="edu-date">2020 - 2021[cite: 1]</div>
+                </div>
+                <div class="edu-item" style="margin-top: 0.8rem;">
+                    <div class="edu-title">Python Essentials 1 y 2[cite: 1]</div>
+                    <div class="edu-institution">Cisco Networking Academy / Python Institute[cite: 1]</div>
+                    <div class="edu-date">2023 - 2024[cite: 1]</div>
+                </div>
+            </section>
+
+            <!-- Soft Skills & Languages -->
+            <section class="card">
+                <h3 class="section-title"><i class="fa-solid fa-globe"></i> Idiomas & Habilidades</h3>
+                <ul class="simple-list">
+                    <li><span>Español:</span> <strong>Nativo[cite: 1]</strong></li>
+                    <li><span>Inglés:</span> <strong>Intermedio[cite: 1]</strong></li>
+                </ul>
+                <div style="margin-top: 1rem;" class="tags">
+                    <span class="tag">Orientado a resultados[cite: 1]</span>
+                    <span class="tag">Trabajo colaborativo[cite: 1]</span>
+                    <span class="tag">Resolución de problemas[cite: 1]</span>
+                    <span class="tag">Adaptabilidad[cite: 1]</span>
+                </div>
+            </section>
+        </aside>
+
+    </div>
+
+    <footer>
+        <p>© 2026 Marco Antonio Ramírez Ayala. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
